@@ -3,7 +3,7 @@
 * Difficulty: `Easy`.
 * Summary: This challenge was based on login problem let me access the `ADMIN` page.
 
-* ### Downloads The White Box To Review Wource Code :
+* ### Downloads The White Box To Review Source Code :
 ![alt text](writeup-images/Screenshot_20250715_075155.png) 
 
 * I focused on two files `http.go` and `sessions.go`
