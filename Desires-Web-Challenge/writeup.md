@@ -9,7 +9,7 @@
 * I focused on two files `http.go` and `sessions.go`
 
 * ### Let's start `sessions.go` analysis :
-    * This file only three functions.
+    * This file has only three functions.
 * ![alt text](writeup-images/Screenshot_20250715_142846.png)
 * ![alt text](writeup-images/Screenshot_20250716_071012.png)
 * ![alt text](writeup-images/Screenshot_20250716_072446.png)
@@ -20,7 +20,7 @@
         * Store session's JSON data in the file.
         * finally return `sessionID` if everything goes well, but if anything goes wrong, the script won't be completed.
     * `PrepareSession` Function :
-        * This function take two arguments `sessionID` and `username`.
+        * This function takes two arguments `sessionID` and `username`.
         * This function sets a key (username) in `redis` database and it's value will be `sessionID`.
         * This function will return error if anything goes wrong.
     * `GetSession` Function :
@@ -33,8 +33,8 @@
 * ### Let's Analyze `Login` Proccess Function :
 * ![alt text](writeup-images/login-function.png)
     * Create `sessionID` with current time.
-    * Put the session in the `Redis` database with `username` as a key.
-    * Then try to login the user if `username` and `password` are true and put the user's Json Data in this path `/tmp/session/{username}/{sessionID}` using `CreateSession` and put the `cookie` in the browser under name `session` and it's value will be `sessionID` and another `cookie` in the browser under name `username` in it's value will be `username` of the user.
+    * Put the session in the `Redis` database with `username` as a key by `PrepareSession` function.
+    * Then try to login the user if `username` and `password` are true and put the user's JSON Data in this path `/tmp/session/{username}/{sessionID}` using `CreateSession` and put the `cookie` in the browser under name `session` and it's value will be `sessionID` and another `cookie` in the browser under name `username` in it's value will be `username` of the user.
     * Finally if anything goes well, the script will redirect the user to `/user/upload` to upload `you can upload only zip files in this page and it'll be decompressed in this path "/app/service/files/{username}/{your compressed file inside zip}"`
 
 * ![alt text](writeup-images/user-data-object.png)
